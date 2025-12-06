@@ -17,6 +17,7 @@ public class SelenoidStatusTest {
                 .statusCode(200)   // проверяем статус
                 .body("total", equalTo(5)); // проверяем поле total
     }
+
     @Test
     void checkTotalWithoutLog() {
         given()

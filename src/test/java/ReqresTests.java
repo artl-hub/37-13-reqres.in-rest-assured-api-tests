@@ -10,9 +10,9 @@ public class ReqresTests extends TestBase {
         given()
                 .header("x-api-key", API_KEY)
                 .log().uri()
-        .when()
-                .get("/api/users?page=2")
-        .then()
+                .when()
+                .get("/users?page=2")
+                .then()
                 .log().body()
                 .statusCode(200)
                 .body("page", equalTo(2))
@@ -25,7 +25,7 @@ public class ReqresTests extends TestBase {
                 .header("x-api-key", API_KEY)
                 .log().uri()
                 .when()
-                .get("/api/users/2")
+                .get("/users/2")
                 .then()
                 .log().body()
                 .statusCode(200)
@@ -45,9 +45,9 @@ public class ReqresTests extends TestBase {
                 .contentType("application/json")
                 .body(body)
                 .log().body()
-        .when()
-                .post("/api/users")
-        .then()
+                .when()
+                .post("/users")
+                .then()
                 .log().body()
                 .statusCode(201)
                 .body("name", equalTo("morpheus"))
@@ -69,7 +69,7 @@ public class ReqresTests extends TestBase {
                 .body(body)
                 .log().body()
                 .when()
-                .put("/api/users/2")
+                .put("/users/2")
                 .then()
                 .log().body()
                 .statusCode(200)
@@ -83,16 +83,10 @@ public class ReqresTests extends TestBase {
                 .header("x-api-key", API_KEY)
                 .log().uri()
                 .when()
-                .delete("/api/users/2")
+                .delete("/users/2")
                 .then()
                 .log().body()
                 .statusCode(204);
     }
-
-
-
-
-
-
 
 }
